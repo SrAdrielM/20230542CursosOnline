@@ -4,7 +4,7 @@ import { url } from "../utils/ApiUrl";
 import useFetchCourse from "./useFetchCourse";
 import { useNavigate, useParams } from "react-router-dom";
 
-const useDataCourse = () => {
+const useDataCourse = (methods) => {
     const {id} = useParams();
     const navigate = useNavigate();
 
@@ -78,9 +78,23 @@ const useDataCourse = () => {
             const course = await getCoursesById(id);
             if (course) {
                 reset({
-                    
+                    curso: course?.curso,
+                    tematica: course?.tematica,
+                    instructor: course?.instructor,
+                    descripcion: course?.descripcion,
                 });
             } 
         }
-    }
-}
+    };
+
+    useEffect(() => {
+        loadCourse();
+    }, [id]);
+
+    return {saveCourse, register,
+        handleSubmit: handleSubmit(handleCourseAction),
+         errors, loadCourse
+        };
+};
+
+export default useDataCourse;
