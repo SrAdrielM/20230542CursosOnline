@@ -1,6 +1,6 @@
 import { useState, useEffect} from "react";
 import { toast } from "react-hot-toast";
-import { url } from "../utils/ApiUrl";
+import { url } from "../utils/apiUrl";
 import useFetchCourse from "./useFetchCourse";
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -36,7 +36,7 @@ const useDataCourse = (methods) => {
             toast.error("Error al guardar el curso");
         }
         finally {
-            getCourses();
+            navigate("/");
             reset();
         }
     }
@@ -67,7 +67,6 @@ const useDataCourse = (methods) => {
             console.error("Error updating course:", error);
             toast.error("Error al actualizar el curso");
         } finally {
-            getCourses();
             reset();
             navigate("/");
         }

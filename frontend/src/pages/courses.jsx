@@ -1,3 +1,5 @@
+import "./styles/Courses.css";
+
 import { Link, useParams } from "react-router-dom";
 import Titulo from "../components/Titulos";
 import InputText from "../components/InputText";
@@ -7,44 +9,38 @@ import { useForm } from "react-hook-form";
 import useDataCourse from "../hooks/useDataCourse";
 
 const Courses = () => {
-    const { id } = useParams();
-    const methods = useForm();
-    const {register, handleSubmit, errors} = useDataCourse(methods);
-    
-    return  (
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <Link
-        to="/home"
-        className="text-2xl font-bold text-black mb-4 p-2 rounded w-auto text-center hover:bg-gray-200 transition-colors"
-      >
+  const { id } = useParams();
+  const methods = useForm();
+  const { register, handleSubmit, errors } = useDataCourse(methods);
+
+  return (
+    <div className="courses-container">
+      <Link to="/home" className="back-link">
         Back To Home
       </Link>
-      <form
-      onSubmit={handleSubmit}
-      className="border-b border-gray-900/10 pb-12 bg-white shadow-md rounded-lg flex flex-col p-4 ">
-        <Titulo titulo="User Information" />
-        <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-            {/* nombre del curso */}
-            <InputText
+
+    <div className="form-wrapper">
+      <form onSubmit={handleSubmit} className="form-container">
+        <Titulo titulo="Agregar un nuevo curso" />
+
+        <div className="form-grid">
+          <InputText
             type="text"
             name="titulo"
             label="Titulo del curso"
             placeholder="titulo"
             register={register}
             error={errors.titulo?.message}
-            />
-            {/* tematica del curso */}
-            <InputText
+          />
+          <InputText
             type="text"
             name="tematica"
             label="Tematica del curso"
             placeholder="tematica"
             register={register}
             error={errors.tematica?.message}
-            />
- 
-            {/* instructor del curso */}
-            <InputText
+          />
+          <InputText
             type="text"
             name="instructor"
             label="Nombre del instructor"
@@ -52,8 +48,6 @@ const Courses = () => {
             register={register}
             error={errors.instructor?.message}
           />
-
-          {/* descripcion del curso */}
           <InputText
             type="text"
             name="descripcion"
@@ -63,10 +57,12 @@ const Courses = () => {
             error={errors.descripcion?.message}
           />
         </div>
+
         <Button type="submit" text={id ? "Edit User" : "Save User"} />
       </form>
+      </div>
     </div>
-    )
-}
+  );
+};
 
 export default Courses;

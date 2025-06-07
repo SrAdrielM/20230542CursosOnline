@@ -1,13 +1,15 @@
-const Button = ({ type, onClick, text }) => {
-    return (
-      <button
-        type={type}
-        onClick={onClick}
-        className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded transition-colors"
-      >
-        {text}
-      </button>
-    );
-  };
-  
-  export default Button;
+import './styles.css';
+
+const Button = ({ type = "button", onClick, text, variant = "primary" }) => {
+  return (
+    <button
+      type={type}
+      onClick={onClick}
+      className={`btn btn-${variant}`}
+    >
+      {text}
+    </button>
+  );
+};
+
+export default Button;

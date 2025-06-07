@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {Toaster} from "react-hot-toast";
-//import Home from "./pages/Home";
+import Home from "./pages/Home";
 import Courses from "./pages/Courses";
 
 function App() {
@@ -10,8 +10,8 @@ function App() {
     <>
       <Router>
         <Routes>
-          
-          <Route path="/" element={<Courses />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/courses" element={<Courses />} />
         </Routes>
       </Router>
       <Toaster
