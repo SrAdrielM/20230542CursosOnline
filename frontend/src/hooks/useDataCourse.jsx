@@ -36,8 +36,8 @@ const useDataCourse = (methods) => {
             toast.error("Error al guardar el curso");
         }
         finally {
-            navigate("/");
             reset();
+            window.location.href = "/home";
         }
     }
 
@@ -68,7 +68,7 @@ const useDataCourse = (methods) => {
             toast.error("Error al actualizar el curso");
         } finally {
             reset();
-            navigate("/");
+            window.location.href = "/home";
         }
     };
 

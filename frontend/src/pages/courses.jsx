@@ -26,11 +26,11 @@ const Courses = () => {
         <div className="form-grid">
           <InputText
             type="text"
-            name="titulo"
+            name="curso"
             label="Titulo del curso"
             placeholder="titulo"
             register={register}
-            error={errors.titulo?.message}
+            error={errors.curso?.message}
           />
           <InputText
             type="text"
@@ -58,7 +58,7 @@ const Courses = () => {
           />
         </div>
 
-        <Button type="submit" text={id ? "Edit User" : "Save User"} />
+        <Button type="submit" text={id ? "Edit Course" : "Save Course"} />
       </form>
       </div>
     </div>

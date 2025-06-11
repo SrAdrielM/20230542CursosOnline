@@ -1,22 +1,19 @@
 .courses-container {
     width: 100vw;
     height: 100vh;;
+    padding: 20px;
 }
 
 .back-link {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: black;
-  margin-bottom: 1rem;
-  padding: 0.5rem;
-  display: inline-block;
-  border-radius: 0.5rem;
-  text-align: center;
-  transition: background-color 0.3s ease;
+  font-size: 1rem;
+  color: #ffffff;
+  background-color: #b40e0e;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 .back-link:hover {
-  background-color: #e5e7eb;
+  background-color: #bf5151;
 }
 
 .form-wrapper {
@@ -31,4 +28,15 @@
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: 1rem;
+    background-color: #e5e7eb;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
 }

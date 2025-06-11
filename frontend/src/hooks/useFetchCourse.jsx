@@ -25,7 +25,6 @@ const useFetchCourse = () => {
         try {
             const response = await fetch(`${url}/${id}`);
             if (!response.ok) {
-                console.log("Failed to fetch courses");
                 throw new Error("Failed to fetch courses")
             }
             const data = await response.json();
